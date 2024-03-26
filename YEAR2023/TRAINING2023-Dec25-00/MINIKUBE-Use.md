@@ -57,3 +57,15 @@ anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_de
 anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ minikube service training2023-dec25-00
 anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl port-forward svc/training2023-dec25-00 --address 0.0.0.0 3000:3000
 
+
+
+### Apply Changes
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ docker build -t corporealsoul/kubernetes:TRAINING2023-Dec25-00-01 .
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ docker images
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ docker push corporealsoul/kubernetes:TRAINING2023-Dec25-00-01
+
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get deployments
+
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl set image deployment training2023-dec25-00 TRAINING2023-Dec25-00
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl set image deployment training2023-dec25-00 kubernetes=corporealsoul/kubernetes:TRAINING2023-Dec25-00-01
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get pods -o wide
