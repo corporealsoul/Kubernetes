@@ -34,3 +34,26 @@ enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 PS C:\WINDOWS\system32> route add 192.168.49.0 mask 255.255.255.0 192.168.56.104
 PS C:\WINDOWS\system32> route print
+
+
+
+
+
+### Deployment of OWN Application
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ minikube status
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ minikube start
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ minikube addons enable metrics-server
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl create deployment training2023-dec25-00 --image=corporealsoul/kubernetes:TRAINING2023-Dec25-00
+
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get deployments
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get pods -o wide
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get services
+
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl describe pod training2023-dec25-00-f768d6998-8gstn
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl logs training2023-dec25-00-f768d6998-8gstn
+
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl expose deployment training2023-dec25-00 --port=3000 --type=NodePort
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl get services
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ minikube service training2023-dec25-00
+anup@blueprintsandco:~/Kubernetes/YEAR2023/TRAINING2023-Dec25-00/training2023_dec25_00$ kubectl port-forward svc/training2023-dec25-00 --address 0.0.0.0 3000:3000
+
