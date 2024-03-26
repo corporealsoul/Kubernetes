@@ -30,9 +30,7 @@ anup@blueprintsandco:~/DevOps-SRE/YEAR2024/Infrastructure-as-Code/ansible/roles/
 
 
 ### Have Kubectl
-https://kubernetes.io/
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 
 ### Update and Upgrade
 anup@blueprintsandco:~/DevOps-SRE/YEAR2024/Infrastructure-as-Code/ansible/roles/minikube$ sudo apt-get update
@@ -85,4 +83,4 @@ anup@blueprintsandco:~/DevOps-SRE/YEAR2024/Infrastructure-as-Code/ansible/roles/
 anup@blueprintsandco:~/DevOps-SRE/YEAR2024/Infrastructure-as-Code/ansible/roles/minikube$ minikube service hello-minikube --url
 anup@blueprintsandco:~/DevOps-SRE/YEAR2024/Infrastructure-as-Code/ansible/roles/minikube$ kubectl port-forward svc/hello-minikube --address 0.0.0.0 9090:8080
 
-http://192.168.56.104:8080/
+http://192.168.56.104:9090/
